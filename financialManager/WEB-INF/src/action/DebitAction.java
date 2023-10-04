@@ -3,10 +3,9 @@ package action;
 import java.util.Date;
 
 public class DebitAction {
-	
 	private long amount;
-	
 	private Transaction transaction;
+	private String document;
 
 	public long getAmount() {
 		return amount;
@@ -16,9 +15,33 @@ public class DebitAction {
 		this.amount = amount;
 	}
 	
+	public Transaction getTransaction() {
+		return transaction;
+	}
+
+	public void setTransaction(Transaction transaction) {
+		this.transaction = transaction;
+	}
+	
 	public String execute(){
-		transaction = new Transaction(new Date(), "D", this.amount);
-		Transactions.add(transaction);
+		this.transaction = new Transaction(new Date(), "D", this.amount, this.document );
+		Transactions.add(this.transaction);
+		
 		return "success";
 	}
+
+	/**
+	 * @return the document
+	 */
+	public String getDocument() {
+		return document;
+	}
+
+	/**
+	 * @param document the document to set
+	 */
+	public void setDocument(String document) {
+		this.document = document;
+	}
+
 }

@@ -6,10 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Credit</title>
+<s:head/>
 </head>
 <body>
 	<s:form action="Credit">
-		<s:textfield name="amount" label="Amount" size="14"></s:textfield>
+		<s:textfield name="amount" label="Amount" size="14" ></s:textfield><br>
+		<s:textfield name="document" label="Document" size="20" ></s:textfield>
 		<s:submit method="execute" label="OK"></s:submit>
 	</s:form>
 </body>

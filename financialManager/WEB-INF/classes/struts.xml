@@ -15,6 +15,7 @@
 		<action name="Credit" class="action.CreditAction">
 			<result name="success" type="redirectAction">Statement.action</result>
 			<result name="error">Error.jsp</result>
+			<result name="input">Credit.jsp</result>
 		</action>
 		
 		<action name="Debit" class="action.DebitAction">
