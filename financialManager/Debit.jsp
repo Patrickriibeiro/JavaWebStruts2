@@ -10,6 +10,7 @@
 <body>
 	<s:form action="Debit">
 		<s:textfield name="amount" label="Amount" size="14"></s:textfield>
+		<s:textfield name="document" label="Document" size="20"></s:textfield>
 		<s:submit method="execute" label="OK"></s:submit>
 	</s:form>
 </body>

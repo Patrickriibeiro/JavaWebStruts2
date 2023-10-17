@@ -2,7 +2,15 @@ package action;
 
 import java.util.Date;
 
-public class DebitAction {
+import com.opensymphony.xwork2.ActionSupport;
+
+public class DebitAction extends ActionSupport{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7206892860552841328L;
+	
 	private long amount;
 	private Transaction transaction;
 	private String document;
@@ -24,7 +32,7 @@ public class DebitAction {
 	}
 	
 	public String execute(){
-		this.transaction = new Transaction(new Date(), "D", this.amount, this.document );
+		this.transaction = new Transaction(new Date(), "D", this.amount, this.document);
 		Transactions.add(this.transaction);
 		
 		return "success";

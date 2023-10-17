@@ -21,6 +21,7 @@
 		<action name="Debit" class="action.DebitAction">
 			<result name="success" type="redirectAction">Statement.action</result>
 			<result name="error">Error.jsp</result>
+			<result name="input">Debit.jsp</result>
 		</action>
 		
 		<action name="Statement" class="action.StatementAction">

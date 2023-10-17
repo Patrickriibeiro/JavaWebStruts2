@@ -19,12 +19,14 @@
 		<td>Date</td>
 		<td>Amount<td>
 		<td>C/D</td>
+		<td>Document</td>
 		<tr>
 		<s:iterator value="transactions" var="trn">
 		<tr>
 		<td><s:property value="#trn.date"/></td>
 		<td><s:property value="#trn.amount"/><td>
 		<td><s:property value="#trn.nature"/></td>
+		<td><s:property value="#trn.document"/></td>
 		<tr>
 		</s:iterator>
 	</table>

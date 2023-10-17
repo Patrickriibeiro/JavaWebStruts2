@@ -1,0 +1,19 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="amount">
+		<field-validator type="long">
+			<param name="min">0,1</param>
+			<param name="max">1000</param>
+			<message>Invalid Amount</message>
+		</field-validator>
+	</field>
+	<field name="document">
+		<field-validator type="requiredstring">
+			<message>Document Required</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="min">5</param>
+			<message>Invalid document</message>
+		</field-validator>
+	</field>
+</validators>
