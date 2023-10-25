@@ -4,6 +4,8 @@ import java.util.Date;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import exception.DefaulException;
+
 public class DebitAction extends ActionSupport{
 	
 	/**
@@ -32,10 +34,15 @@ public class DebitAction extends ActionSupport{
 	}
 	
 	public String execute(){
+		try {
 		this.transaction = new Transaction(new Date(), "D", this.amount, this.document);
-		Transactions.add(this.transaction);
-		
+		Transactions.add(this.transaction);	
 		return "success";
+		
+		} catch (DefaulException e) {
+			return "error";
+		}
+				
 	}
 
 	/**

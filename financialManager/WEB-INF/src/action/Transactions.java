@@ -4,6 +4,8 @@ import java.util.*;
 
 import com.opensymphony.xwork2.ActionContext;
 
+import exception.DefaulException;
+
 public class Transactions {
 	
 private static Map<String, Object> session = ActionContext.getContext().getSession();
@@ -28,7 +30,7 @@ private static Map<String, Object> session = ActionContext.getContext().getSessi
 		session.put("Transactions", all);
 	}
 	
-	public static void add(Transaction transaction){
+	public static void add(Transaction transaction) throws DefaulException {
 		getAll();
 		_transactions.add(transaction);
 		setAll(_transactions);

@@ -4,6 +4,8 @@ import java.util.Date;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import exception.DefaulException;
+
 public class CreditAction extends ActionSupport{
 	
 	/**
@@ -31,11 +33,14 @@ public class CreditAction extends ActionSupport{
 		this.transaction = transaction;
 	}
 	
-	public String execute(){
-		this.transaction = new Transaction(new Date(), "C", this.amount, this.document);
-		Transactions.add(this.transaction);
-		
-		return "success";
+	public String execute() {
+		try {
+			this.transaction = new Transaction(new Date(), "C", this.amount,this.document);
+			Transactions.add(this.transaction);
+			return "success";
+		} catch (DefaulException e) {
+			return "error";
+		}
 	}
 
 	/**
