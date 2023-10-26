@@ -6,7 +6,7 @@
  
     <display-name>Financial Manager</display-name>
     <welcome-file-list>
-      <welcome-file>index.jsp</welcome-file>
+      <welcome-file>Index.jsp</welcome-file>
     </welcome-file-list>
   		 
     <filter>

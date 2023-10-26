@@ -7,29 +7,35 @@
 
 	<constant name="struts.devMode" value="true" />
 	
+	<global-results>
+	 	<result name="error">Error.jsp</result>
+	</global-results>
+	
+	<global-exception-mappings>
+	    <exception-mapping result="error" exception="exception.AccountException"></exception-mapping>
+	</global-exception-mappings>
+	
 	<package name="default" extends="struts-default" namespace="/">
 		<action name="index">
-			<result>index.jsp</result>
+			<result>Index.jsp</result>
 		</action>
 		
 		<action name="Credit" class="action.CreditAction">
 			<result name="success" type="redirectAction">Statement.action</result>
-			<result name="error">Error.jsp</result>
 			<result name="input">Credit.jsp</result>
 		</action>
 		
 		<action name="Debit" class="action.DebitAction">
 			<result name="success" type="redirectAction">Statement.action</result>
-			<result name="error">Error.jsp</result>
 			<result name="input">Debit.jsp</result>
 		</action>
 		
 		<action name="Statement" class="action.StatementAction">
 			<result name="success">Statement.jsp</result>
-			<result name="error">Error.jsp</result>
+		
 		</action>
 		
 	</package>
-
+	
 </struts>
 

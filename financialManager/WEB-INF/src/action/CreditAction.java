@@ -39,6 +39,7 @@ public class CreditAction extends ActionSupport{
 			Transactions.add(this.transaction);
 			return "success";
 		} catch (DefaulException e) {
+			addActionError(e.getMessage());
 			return "error";
 		}
 	}

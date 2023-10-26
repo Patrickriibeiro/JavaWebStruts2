@@ -34,5 +34,6 @@ private static Map<String, Object> session = ActionContext.getContext().getSessi
 		getAll();
 		_transactions.add(transaction);
 		setAll(_transactions);
+		throw new DefaulException("Error message");
 	}
 }

@@ -2,9 +2,14 @@ package action;
 
 import java.util.Date;
 
+
+
+import utils.AccountHelper;
+
 import com.opensymphony.xwork2.ActionSupport;
 
-import exception.DefaulException;
+import exception.AccountException;
+
 
 public class DebitAction extends ActionSupport{
 	
@@ -33,16 +38,22 @@ public class DebitAction extends ActionSupport{
 		this.transaction = transaction;
 	}
 	
-	public String execute(){
+	public String execute() {
 		try {
-		this.transaction = new Transaction(new Date(), "D", this.amount, this.document);
-		Transactions.add(this.transaction);	
-		return "success";
-		
-		} catch (DefaulException e) {
+
+			if (AccountHelper.getBalance() - this.amount <= 0)
+				 throw new AccountException("Sem saldo");
+
+			this.transaction = new Transaction(new Date(), "D", this.amount,
+					this.document);
+			Transactions.add(this.transaction);
+			return "success";
+
+		} catch (Exception e) {
+			addActionError(e.getMessage());
 			return "error";
 		}
-				
+
 	}
 
 	/**
