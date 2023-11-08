@@ -1,10 +1,10 @@
 package action;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import com.opensymphony.xwork2.ActionContext;
-
-import exception.DefaulException;
 
 public class Transactions {
 	
@@ -30,10 +30,10 @@ private static Map<String, Object> session = ActionContext.getContext().getSessi
 		session.put("Transactions", all);
 	}
 	
-	public static void add(Transaction transaction) throws DefaulException {
+	public static void add(Transaction transaction)  {
 		getAll();
 		_transactions.add(transaction);
 		setAll(_transactions);
-		throw new DefaulException("Error message");
+	//	throw new DefaulException("Error message"); throws DefaulException
 	}
 }

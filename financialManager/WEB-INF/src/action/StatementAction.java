@@ -8,9 +8,8 @@ public class StatementAction {
 
 	private List<Transaction> transactions;
 
-	public long getBalance() {
-		return AccountHelper.getBalance();
-
+	public String getBalance() {
+		return String.valueOf(AccountHelper.getBalance());
 	}
 
 	public List<Transaction> getTransactions() {

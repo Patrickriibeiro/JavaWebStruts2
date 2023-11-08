@@ -6,36 +6,51 @@
 <struts>
 
 	<constant name="struts.devMode" value="true" />
-	
-	<global-results>
-	 	<result name="error">Error.jsp</result>
-	</global-results>
-	
-	<global-exception-mappings>
-	    <exception-mapping result="error" exception="exception.AccountException"></exception-mapping>
-	</global-exception-mappings>
-	
+
 	<package name="default" extends="struts-default" namespace="/">
+
+		<interceptors>
+			<interceptor name="custom" class="interceptor.CustomInterceptor"></interceptor>
+			<interceptor-stack name="customStack">
+				<interceptor-ref name="custom" />
+				<interceptor-ref name="logger" />
+				<interceptor-ref name="timer" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="customStack"></default-interceptor-ref>
+
+		<global-results>
+			<result name="error">Error.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping result="error"
+				exception="exception.AccountException"></exception-mapping>
+		</global-exception-mappings>
+
 		<action name="index">
 			<result>Index.jsp</result>
 		</action>
-		
+
 		<action name="Credit" class="action.CreditAction">
 			<result name="success" type="redirectAction">Statement.action</result>
 			<result name="input">Credit.jsp</result>
 		</action>
-		
+
 		<action name="Debit" class="action.DebitAction">
 			<result name="success" type="redirectAction">Statement.action</result>
 			<result name="input">Debit.jsp</result>
 		</action>
-		
+
 		<action name="Statement" class="action.StatementAction">
+			<interceptor-ref name="defaultStack"> </interceptor-ref>
 			<result name="success">Statement.jsp</result>
-		
+
 		</action>
-		
+
 	</package>
-	
+
 </struts>
 
